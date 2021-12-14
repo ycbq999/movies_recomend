@@ -1,0 +1,13 @@
+name: app-1
+title:
+username:
+account: ycbq999
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 5322881
+bundleId: 5369756
+url: https://ycbq999.shinyapps.io/app-1/
+when: 1639459936.96065
+lastSyncTime: 1639459936.96065
+asMultiple: FALSE
+asStatic: FALSE
