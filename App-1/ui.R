@@ -1,5 +1,5 @@
 
-#setwd("D:/My Data/UIUC/CS598_Practical_Statistical_Learning/Project4")
+#setwd("D:/My Data/UIUC/CS598_Practical_Statistical_Learning/Project4_new_method/App-1")
 #install.packages("shiny")
 
 library(shiny)
@@ -23,18 +23,19 @@ header <- dashboardHeader(title = "Basic dashboard")
 
 sidebar <-  dashboardSidebar(
   sidebarMenu(
+    
     menuItem("Recommender by Genre", tabName = "genre", icon = icon("film")),
     menuItem("Recommender by Rating", tabName = "rating", icon = icon("star"))
+    
   )
 )
-
 
 body <- dashboardBody(includeCSS("css/movies.css"),
   tabItems(
     tabItem( tabName = "genre",
              
              fluidRow(
-               box(width = 12, title = "Step 1: select your favorite genre", status = "info", solidHeader = TRUE, collapsible = TRUE,
+               box( id = 'box1', width = 12, title = "Step 1: select your favorite genre", status = "info", solidHeader = TRUE, collapsible = TRUE,
                    selectInput("genre_select", h5("Select a single genre from the dropdown menu"), 
                                choices = genre_list))
              ),
@@ -66,19 +67,18 @@ body <- dashboardBody(includeCSS("css/movies.css"),
              
              fluidRow(
                useShinyjs(),
-               box(
-                 width = 12, status = "info", solidHeader = TRUE,
-                 title = "Step 2: Discover books you might like",
+               box(width = 12, status = "info", solidHeader = TRUE,
+                 title = "Step 2: Discover movies you might like",
                  br(),
+                 collapsible = TRUE,
                  withBusyIndicatorUI(
                    actionButton("btn2", "Click here to get your recommendations", class = "btn-warning")
                  ),
                  br(),#,
-                 #tableOutput("results2")
-                 uiOutput('results2')# for testing
+                 tableOutput("results2")
+                 #uiOutput('results2')# for testing
                )
              )
-             
              
     )
   )
