@@ -70,7 +70,7 @@ appCSS <- "
 .btn-loading-container {
   margin-left: 10px;
   font-size: 1.2em;
-}
+} 
 .btn-done-indicator {
   color: green;
 }
